@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <title>Teste</title>
+	<style>
+		#content{
+			margin-top:60px;
+			align:center;
+			width: 800px;
+		}
+	</style>
+  
+
+  </head>
+<body>
+	
+	<div  id='content' class="center-block">
+	<p id='demo'></p>
+	  <div>
+		<table class="table table-bordered">
+		<thead>
+			<th>Funcionario</th>
+			<th>Ramal</th>
+			<th>Telefone</th>
+			<th>Departamento</th>
+		</thead>
+		<tbody id='tbody'>
+		
+		</tbody>
+			
+	</table>
+	  </div>
+	</div>
+	
+
+	<script>
+	$.getJSON(
+		"agenda.js",
+		function(data){
+			//$('#tbody').text(data.employees[0].funcionario);
+			for(var i in data.employees){
+				var txt =
+					"<tr><td>" + data.employees[i].funcionario + "</td>" +
+					"<td>" + data.employees[i].ramal + "</td>" +
+					"<td>" + data.employees[i].telefone + "</td>" +
+					"<td>" + data.employees[i].departamento + "</td></tr>";
+				$(tbody).append(txt);
+			}
+		}
+	);
+
+	</script>
+	
+	
+
+</body>
+</html>
